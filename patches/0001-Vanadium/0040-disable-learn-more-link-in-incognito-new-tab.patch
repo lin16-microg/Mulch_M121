@@ -1,0 +1,38 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: A Mak <refragable@mailbox.org>
+Date: Sat, 8 Aug 2020 11:17:59 -0700
+Subject: [PATCH] disable learn more link in incognito new tab
+
+---
+ .../chrome/browser/ntp/LegacyIncognitoDescriptionView.java    | 4 ++--
+ .../chrome/browser/ntp/RevampedIncognitoDescriptionView.java  | 1 +
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/chrome/android/java/src/org/chromium/chrome/browser/ntp/LegacyIncognitoDescriptionView.java b/chrome/android/java/src/org/chromium/chrome/browser/ntp/LegacyIncognitoDescriptionView.java
+index 38aa5bd718c25..8fdf63432c737 100644
+--- a/chrome/android/java/src/org/chromium/chrome/browser/ntp/LegacyIncognitoDescriptionView.java
++++ b/chrome/android/java/src/org/chromium/chrome/browser/ntp/LegacyIncognitoDescriptionView.java
+@@ -318,9 +318,9 @@ public class LegacyIncognitoDescriptionView extends LinearLayout
+                 getContext()
+                         .getResources()
+                         .getString(R.string.new_tab_otr_subtitle_with_reading_list);
+-        boolean learnMoreInSubtitle = mWidthDp > WIDE_LAYOUT_THRESHOLD_DP;
++        boolean learnMoreInSubtitle = false;
+ 
+-        mLearnMore.setVisibility(learnMoreInSubtitle ? View.GONE : View.VISIBLE);
++        mLearnMore.setVisibility(View.GONE);
+ 
+         if (!learnMoreInSubtitle) {
+             // Revert to the original text.
+diff --git a/chrome/android/java/src/org/chromium/chrome/browser/ntp/RevampedIncognitoDescriptionView.java b/chrome/android/java/src/org/chromium/chrome/browser/ntp/RevampedIncognitoDescriptionView.java
+index c8609cf84b430..7b469f68d2cbb 100644
+--- a/chrome/android/java/src/org/chromium/chrome/browser/ntp/RevampedIncognitoDescriptionView.java
++++ b/chrome/android/java/src/org/chromium/chrome/browser/ntp/RevampedIncognitoDescriptionView.java
+@@ -290,6 +290,7 @@ public class RevampedIncognitoDescriptionView extends LinearLayout
+ 
+         mLearnMore.setText(formattedText);
+         mLearnMore.setMovementMethod(LinkMovementMethod.getInstance());
++        mLearnMore.setVisibility(View.GONE);
+     }
+ 
+     private boolean isNarrowScreen() {
