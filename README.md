@@ -4,6 +4,12 @@ Mulch
 =====
 The DivestOS WebView
 
+About this specific fork:
+-------------------------
+This is a frozen version of M121 used for the treble build of the P9 device due to size restrictions
+of the /system partition - for any other purpose, please visit the official DivestOS sources!
+
+
 Use
 ---
 - This repository contains the compile scripts, patches, and prebuilt WebView providers
