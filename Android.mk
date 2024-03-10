@@ -22,7 +22,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := webview
 LOCAL_MODULE_CLASS := APPS
-LOCAL_PRODUCT_MODULE := true
 LOCAL_MULTILIB := both
 LOCAL_REQUIRED_MODULES := \
         libwebviewchromium_loader \
